@@ -1,0 +1,25 @@
+.filters {
+  display: flex;
+  gap: 2em;
+}
+
+.filters > input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.filters > input:focus-visible + label {
+  outline: auto;
+}
+
+.filters > input:checked + label {
+  color: var(--bright-blue);
+}
+
+@media (min-width: 600px) {
+  .filters {
+    gap: 1em;
+  }
+}

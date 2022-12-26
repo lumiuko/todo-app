@@ -1,0 +1,37 @@
+.todoItem,
+.btnComplete {
+  cursor: pointer;
+}
+
+.todoItem {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  padding: 1.125em;
+  color: var(--card-text-color);
+  border-bottom: 1px solid var(--card-border-color);
+  cursor: pointer;
+}
+
+.btnComplete {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-radius: 50%;
+  border: 2px solid var(--check-border-color);
+  transition: border 0.2s;
+}
+
+.btnRemove {
+  margin-left: auto;
+}
+
+.completed > .btnComplete {
+  background: url('../assets/icon-check.svg') no-repeat center, var(--check-gradient);
+  border: none;
+}
+
+.completed > span {
+  text-decoration: line-through;
+}

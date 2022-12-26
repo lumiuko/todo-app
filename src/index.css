@@ -1,0 +1,90 @@
+:root {
+  --bright-blue: hsl(220, 98%, 61%);
+  --bg-color: hsl(0, 0%, 98%);
+  --bg-image: url('./assets/bg-mobile-light.jpg');
+  --card-bg-color: hsl(0, 0%, 100%);
+  --card-text-color: hsl(235, 19%, 35%);
+  --card-text-hover-color: hsl(235, 19%, 35%);
+  --card-border-color: hsl(233, 11%, 84%);
+  --check-border-color: hsl(236, 33%, 92%);
+  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --check-gradient: linear-gradient(120deg, hsl(192, 100%, 67%) 0%, hsl(280, 87%, 65%) 100%);
+}
+
+.dark-theme {
+  --bg-color: hsl(235, 21%, 11%);
+  --bg-image: url('./assets/bg-mobile-dark.jpg');
+  --card-bg-color: hsl(235, 24%, 19%);
+  --card-text-color: hsl(234, 39%, 85%);
+  --card-text-hover-color: hsl(234, 39%, 85%);
+  --card-border-color: hsl(237, 14%, 26%);
+  --check-border-color: hsl(233, 14%, 35%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: background 0.2s, border 0.2s;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: var(--bg-image);
+  background-color: var(--bg-color);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  color: hsl(0, 0%, 98%);
+  font-size: 0.75rem;
+}
+
+body,
+h1,
+p {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+}
+
+.btn {
+  background: transparent;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn:hover {
+  color: var(--card-text-hover-color);
+}
+
+@media (min-width: 600px) {
+  :root {
+    --bg-image: url('./assets/bg-desktop-light.jpg');
+  }
+
+  .dark-theme {
+    --bg-image: url('./assets/bg-desktop-dark.jpg');
+  }
+
+  body {
+    font-size: 1rem;
+  }
+}

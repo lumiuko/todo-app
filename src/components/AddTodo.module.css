@@ -1,0 +1,32 @@
+.form {
+  height: 52px;
+  display: flex;
+  padding-left: 1em;
+  gap: 1em;
+  background-color: var(--card-bg-color);
+  border-radius: 5px;
+}
+
+.form input {
+  width: 100%;
+  padding-right: 1em;
+  caret-color: var(--bright-blue);
+  color: var(--card-text-color);
+  background-color: transparent;
+  border: none;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.btnAdd {
+  cursor: pointer;
+  flex-shrink: 0;
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-radius: 50%;
+  border: 2px solid var(--check-border-color);
+}
