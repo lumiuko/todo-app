@@ -4,10 +4,11 @@ import { v4 as uuid } from 'uuid'
 import Header from './components/Header'
 import AddTodo from './components/AddTodo'
 import TodoList from './components/TodoList'
+import initialTodos from './initialTodos'
 
 function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState(() => localStorage.getItem('theme-color') === 'dark')
-  const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem('todoList')) ?? [])
+  const [isDarkTheme, setIsDarkTheme] = useState(() => localStorage.getItem('theme-color') !== 'light')
+  const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem('todoList')) ?? initialTodos)
   const [filter, setFilter] = useState('all')
   const [filteredTodos, setFilteredTodos] = useState(todos)
 
