@@ -16,17 +16,14 @@
   border: none;
 }
 
+.form input::placeholder {
+  color: var(--dark-grayish-blue);
+}
+
 .form input:focus {
   outline: none;
 }
 
 .btnAdd {
-  cursor: pointer;
-  flex-shrink: 0;
   align-self: center;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border-radius: 50%;
-  border: 2px solid var(--check-border-color);
 }

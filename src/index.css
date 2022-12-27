@@ -6,7 +6,6 @@
   --card-text-color: hsl(235, 19%, 35%);
   --card-text-hover-color: hsl(235, 19%, 35%);
   --card-border-color: hsl(233, 11%, 84%);
-  --check-border-color: hsl(236, 33%, 92%);
   --dark-grayish-blue: hsl(236, 9%, 61%);
   --check-gradient: linear-gradient(120deg, hsl(192, 100%, 67%) 0%, hsl(280, 87%, 65%) 100%);
 }
@@ -18,7 +17,6 @@
   --card-text-color: hsl(234, 39%, 85%);
   --card-text-hover-color: hsl(234, 39%, 85%);
   --card-border-color: hsl(237, 14%, 26%);
-  --check-border-color: hsl(233, 14%, 35%);
 }
 
 *,
@@ -73,6 +71,16 @@ h1 {
 
 .btn:hover {
   color: var(--card-text-hover-color);
+}
+
+.btn-rounded {
+  flex-shrink: 0;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid var(--card-border-color);
 }
 
 @media (min-width: 600px) {

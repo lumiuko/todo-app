@@ -15,7 +15,7 @@ export default function TodoItem(props) {
 
   return (
     <li className={`${styles.todoItem} ${isCompleted ? styles.completed : ''}`} onClick={toggleComplete}>
-      <button className={styles.btnComplete} aria-label="Toggle complete"></button>
+      <button className={`btn-rounded ${styles.btnComplete}`} aria-label="Toggle complete"></button>
       <span className={styles.todoText}>{text}</span>
       <button className={`btn ${styles.btnRemove}`} aria-label="Remove item" onClick={removeItem}>
         <img src={closeIcon} alt="Remove item" aria-hidden="true" />

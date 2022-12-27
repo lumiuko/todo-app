@@ -16,7 +16,7 @@ export default function AddTodo(props) {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <button className={styles.btnAdd} aria-label="Add item"></button>
+      <button className={`btn-rounded ${styles.btnAdd}`} aria-label="Add item"></button>
       <input onChange={handleChange} value={todoText} placeholder="Create a new todo..." required />
     </form>
   )
