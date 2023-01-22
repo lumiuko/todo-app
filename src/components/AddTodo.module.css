@@ -1,10 +1,11 @@
 .form {
-  height: 52px;
+  height: 48px;
   display: flex;
-  padding-left: 1em;
-  gap: 1em;
+  padding-left: 1.5em;
+  gap: 1.5em;
   background-color: var(--card-bg-color);
   border-radius: 5px;
+  box-shadow: var(--box-shadow-sizes) var(--box-shadow-color);
 }
 
 .form input {
@@ -17,7 +18,7 @@
 }
 
 .form input::placeholder {
-  color: var(--dark-grayish-blue);
+  color: var(--placeholder-color);
 }
 
 .form input:focus {
@@ -26,4 +27,14 @@
 
 .btnAdd {
   align-self: center;
+}
+
+@media (min-width: 600px) {
+  .form {
+    height: 64px;
+  }
+
+  .form input {
+    font-size: 1.125rem;
+  }
 }

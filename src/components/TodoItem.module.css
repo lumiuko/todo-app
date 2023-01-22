@@ -1,11 +1,14 @@
 .todoItem {
   display: flex;
-  gap: 1.25em;
   align-items: center;
-  padding: 1.125em;
+  padding: 1.125em 1.5rem;
   color: var(--card-text-color);
   border-bottom: 1px solid var(--card-border-color);
   cursor: pointer;
+}
+
+.todoItem span {
+  margin-left: 1.5rem;
 }
 
 .btnRemove {
@@ -20,13 +23,17 @@
 
 .completed > span {
   text-decoration: line-through;
-  color: var(--dark-grayish-blue);
+  color: var(--completed-text-color);
 }
 
 @media (min-width: 600px) {
   .btnRemove {
     opacity: 0;
     visibility: hidden;
+  }
+
+  .todoItem {
+    font-size: 1.125rem;
   }
 
   .todoItem:hover > .btnRemove {

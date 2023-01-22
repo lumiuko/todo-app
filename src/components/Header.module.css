@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10vw 0;
+  padding: 3em 0 2.5em;
 }
 
 .themeBtn {
@@ -13,7 +13,7 @@
 
 @media (min-width: 600px) {
   .header {
-    padding: 5vw 0;
+    padding: 4.375em 0 3em;
   }
 
   h1 {

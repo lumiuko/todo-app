@@ -5,9 +5,13 @@
   --card-bg-color: hsl(0, 0%, 100%);
   --card-text-color: hsl(235, 19%, 35%);
   --card-text-hover-color: hsl(235, 19%, 35%);
-  --card-border-color: hsl(233, 11%, 84%);
-  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --card-border-color: hsl(236, 33%, 92%);
+  --list-bottom-text-color: hsl(236, 9%, 61%);
   --check-gradient: linear-gradient(120deg, hsl(192, 100%, 67%) 0%, hsl(280, 87%, 65%) 100%);
+  --box-shadow-sizes: 0px 35px 50px -15px;
+  --box-shadow-color: rgba(194, 195, 214, 0.5);
+  --completed-text-color: hsl(233, 11%, 84%);
+  --placeholder-color: hsl(236, 9%, 61%);
 }
 
 .dark-theme {
@@ -17,6 +21,10 @@
   --card-text-color: hsl(234, 39%, 85%);
   --card-text-hover-color: hsl(234, 39%, 85%);
   --card-border-color: hsl(237, 14%, 26%);
+  --list-bottom-text-color: hsl(235, 16%, 43%);
+  --box-shadow-color: rgba(0, 0, 0, 0.5);
+  --completed-text-color: hsl(233, 14%, 35%);
+  --placeholder-color: hsl(234, 11%, 52%);
 }
 
 *,
@@ -51,14 +59,14 @@ select {
 }
 
 .container {
-  max-width: 550px;
+  max-width: 540px;
   margin: 0 auto;
   width: 90%;
 }
 
 h1 {
   text-transform: uppercase;
-  letter-spacing: 0.35em;
+  letter-spacing: 15px;
 }
 
 .btn {
@@ -94,5 +102,10 @@ h1 {
 
   body {
     font-size: 1rem;
+  }
+
+  .btn-rounded {
+    width: 24px;
+    height: 24px;
   }
 }

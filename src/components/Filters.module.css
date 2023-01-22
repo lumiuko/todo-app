@@ -1,6 +1,7 @@
 .filters {
   display: flex;
-  gap: 2em;
+  gap: 1.125em;
+  font-weight: 700;
 }
 
 .filters > input {
@@ -16,10 +17,4 @@
 
 .filters > input:checked + label {
   color: var(--bright-blue);
-}
-
-@media (min-width: 600px) {
-  .filters {
-    gap: 1em;
-  }
 }
