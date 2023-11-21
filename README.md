@@ -36,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://www.frontendmentor.io/solutions/todo-app-lJFjEhVuqv](https://www.frontendmentor.io/solutions/todo-app-lJFjEhVuqv)
-- Live Site URL: [https://todo-flxemt.vercel.app/](https://todo-flxemt.vercel.app/)
+- Live Site URL: [https://todo-lumiuko.vercel.app/](https://todo-lumiuko.vercel.app/)
 
 ## My process
 
@@ -53,5 +53,5 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor - [@flxemt](https://www.frontendmentor.io/profile/flxemt)
-- Twitter - [@flxemt](https://twitter.com/flxemt)
+- Frontend Mentor - [@lumiuko](https://www.frontendmentor.io/profile/lumiuko)
+- Twitter - [@lumiuko](https://twitter.com/lumiuko)
