@@ -5,7 +5,7 @@ import AddTodo from './components/AddTodo'
 import TodoList from './components/TodoList'
 import initialTodos from './initialTodos'
 
-export const ACTIONS = {
+const ACTIONS = {
   ADD_TODO: 'add_todo',
   REMOVE_TODO: 'remove_todo',
   TOGGLE_TODO: 'toggle_todo',
@@ -69,4 +69,4 @@ function App() {
 }
 
 export default App
-export { TodoContext }
+export { ACTIONS, TodoContext }
