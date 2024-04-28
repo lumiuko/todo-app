@@ -1,16 +1,19 @@
 import styles from './TodoItem.module.css'
 import closeIcon from '../assets/icon-cross.svg'
+import { useContext } from 'react'
+import { ACTIONS, TodoContext } from '../App'
 
-export default function TodoItem(props) {
-  const { id, text, isCompleted } = props.todo
+export default function TodoItem({ todo }) {
+  const { dispatch } = useContext(TodoContext)
+  const { id, text, isCompleted } = todo
 
   function removeItem(event) {
     event.stopPropagation()
-    props.removeItem(id)
+    dispatch({ type: ACTIONS.REMOVE_TODO, id })
   }
 
   function toggleComplete() {
-    props.toggleComplete(id)
+    dispatch({ type: ACTIONS.TOGGLE_TODO, id })
   }
 
   return (

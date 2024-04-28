@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 import styles from './TodoList.module.css'
 import TodoItem from './TodoItem'
 import Filters from './Filters'
+import { ACTIONS, TodoContext } from '../App'
 
-export default function TodoList(props) {
+export default function TodoList() {
+  const { todos, filteredTodos, dispatch } = useContext(TodoContext)
   const [isMobile, setIsMobile] = useState(window.outerWidth <= 600)
 
   function handleResize() {
@@ -19,12 +21,8 @@ export default function TodoList(props) {
     }
   }, [])
 
-  const todoItems = props.todos.map(todo => (
-    <TodoItem key={todo.id} todo={todo} removeItem={props.removeItem} toggleComplete={props.toggleComplete} />
-  ))
-
-  const itemsLeft = props.allTodos.filter(todo => !todo.isCompleted).length
-  const filters = <Filters filter={props.filter} applyFilter={props.applyFilter} />
+  const todoItems = filteredTodos.map(todo => <TodoItem key={todo.id} todo={todo} />)
+  const itemsLeft = todos.filter(todo => !todo.isCompleted).length
 
   return (
     <>
@@ -32,15 +30,19 @@ export default function TodoList(props) {
         <ol className={styles.todos}>{todoItems}</ol>
         <div className={styles.listBottom}>
           <span>
-            {itemsLeft} item{itemsLeft !== 1 && 's'} left
+            {itemsLeft} {itemsLeft === 1 ? 'item' : 'items'} left
           </span>
-          {!isMobile && filters}
-          <button className="btn" onClick={props.clearCompleted}>
+          {!isMobile && <Filters />}
+          <button className="btn" onClick={() => dispatch({ type: ACTIONS.CLEAR_COMPLETED })}>
             Clear completed
           </button>
         </div>
       </div>
-      {isMobile && <div className={styles.mobileFilters}>{filters}</div>}
+      {isMobile && (
+        <div className={styles.mobileFilters}>
+          <Filters />
+        </div>
+      )}
     </>
   )
 }

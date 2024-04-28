@@ -1,12 +1,41 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useReducer, createContext } from 'react'
 
 import Header from './components/Header'
 import AddTodo from './components/AddTodo'
 import TodoList from './components/TodoList'
 import initialTodos from './initialTodos'
 
+export const ACTIONS = {
+  ADD_TODO: 'add_todo',
+  REMOVE_TODO: 'remove_todo',
+  TOGGLE_TODO: 'toggle_todo',
+  CLEAR_COMPLETED: 'clear_completed'
+}
+
+function reducer(todos, action) {
+  switch (action.type) {
+    case ACTIONS.ADD_TODO:
+      return [...todos, newTodo(action.text)]
+    case ACTIONS.REMOVE_TODO:
+      return todos.filter(todo => todo.id !== action.id)
+    case ACTIONS.TOGGLE_TODO:
+      return todos.map(todo => (todo.id === action.id ? { ...todo, isCompleted: !todo.isCompleted } : todo))
+    case ACTIONS.CLEAR_COMPLETED:
+      return todos.filter(todo => !todo.isCompleted)
+    default:
+      return state
+  }
+}
+
+function newTodo(text) {
+  const id = crypto.randomUUID()
+  return { id, text, isCompleted: false }
+}
+
+const TodoContext = createContext()
+
 function App() {
-  const [todos, setTodos] = useState(() => JSON.parse(localStorage.getItem('todoList')) ?? initialTodos)
+  const [todos, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('todoList')) ?? initialTodos)
   const [filter, setFilter] = useState('all')
   const [filteredTodos, setFilteredTodos] = useState(todos)
 
@@ -24,44 +53,20 @@ function App() {
     localStorage.setItem('todoList', JSON.stringify(todos))
   }, [todos])
 
-  function addItem(text) {
-    const id = crypto.randomUUID()
-    setTodos(prevTodos => [...prevTodos, { id, text, isCompleted: false }])
-  }
-
-  function removeItem(id) {
-    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id))
-  }
-
-  function toggleComplete(id) {
-    setTodos(prevTodos => prevTodos.map(todo => (todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo)))
-  }
-
-  function clearCompleted() {
-    setTodos(prevTodos => prevTodos.filter(todo => !todo.isCompleted))
-  }
-
   function applyFilter(event) {
     setFilter(event.target.value)
   }
 
   return (
     <main className="container">
-      <Header />
-      <AddTodo addItem={addItem} />
-      {todos.length > 0 && (
-        <TodoList
-          allTodos={todos}
-          todos={filteredTodos}
-          removeItem={removeItem}
-          toggleComplete={toggleComplete}
-          clearCompleted={clearCompleted}
-          applyFilter={applyFilter}
-          filter={filter}
-        />
-      )}
+      <TodoContext.Provider value={{ todos, filteredTodos, dispatch, applyFilter, filter }}>
+        <Header />
+        <AddTodo />
+        <TodoList />
+      </TodoContext.Provider>
     </main>
   )
 }
 
 export default App
+export { TodoContext }
